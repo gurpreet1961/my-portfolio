@@ -13,10 +13,20 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
     {
+        id: 0,
+        role: "Software Developer",
+        company: "GlobalLogic (Hitachi Group)",
+        duration: "Jan 2026 – Present",
+        location: "Hyderabad",
+        description: [
+            "Promoted to Software Developer active role. Continuing to lead backend development initiatives and microservices architecture enhancements."
+        ]
+    },
+    {
         id: 1,
         role: "Associate Software Engineer",
         company: "GlobalLogic (Hitachi Group)",
-        duration: "Aug 2024 – Present",
+        duration: "Aug 2024 – Dec 2025",
         location: "Hyderabad",
         description: [
             "Implemented a secure microservices communication framework, improving distributed system reliability, scalability, and overall service-to-service security.",
