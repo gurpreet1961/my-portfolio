@@ -4,7 +4,7 @@ import { Mail, Linkedin, Github, FileText } from 'lucide-react';
 
 const Contact: React.FC = () => {
     return (
-        <section id="contact" className="py-20 bg-gradient-to-t from-black to-dark text-white">
+        <section id="contact" className="py-20 bg-gradient-to-t from-[var(--color-bg)] to-slate-900/50 text-[var(--color-text)] transition-colors duration-300">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}

@@ -10,7 +10,7 @@ const skills = [
 
 const Skills: React.FC = () => {
     return (
-        <section id="skills" className="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <section id="skills" className="py-20 bg-[var(--color-bg)] text-[var(--color-text)] relative overflow-hidden transition-colors duration-300">
             {/* Background decorative elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>

@@ -46,7 +46,7 @@ const LeetCodeStats: React.FC = () => {
     const hard = data.hardSolved;
 
     return (
-        <div className="bg-dark/50 p-6 rounded-xl border border-white/5 hover:border-yellow-500/50 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/20">
+        <div className="bg-[var(--color-bg)]/50 p-6 rounded-xl border border-[var(--color-text)]/10 hover:border-yellow-500/50 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/20">
             <h3 className="text-xl font-bold mb-6 text-center text-yellow-500">LeetCode Progress</h3>
 
             <div className="flex flex-col md:flex-row items-center justify-around gap-6">

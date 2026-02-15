@@ -46,7 +46,7 @@ const Projects: React.FC = () => {
     }, []);
 
     return (
-        <section id="projects" className="py-20 bg-dark text-white">
+        <section id="projects" className="py-20 bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
