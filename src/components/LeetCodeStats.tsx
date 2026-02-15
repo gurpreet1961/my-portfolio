@@ -55,7 +55,7 @@ const LeetCodeStats: React.FC = () => {
                     <svg viewBox="0 0 36 36" className="w-full h-full transform -rotate-90">
                         {/* Background Circle */}
                         <path
-                            className="text-gray-700"
+                            className="text-[var(--color-border)]"
                             d="M18 2.0845
                 a 15.9155 15.9155 0 0 1 0 31.831
                 a 15.9155 15.9155 0 0 1 0 -31.831"
@@ -78,18 +78,18 @@ const LeetCodeStats: React.FC = () => {
                         />
                     </svg>
                     <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-2xl font-bold text-white">{total}</span>
-                        <span className="text-xs text-gray-400">Solved</span>
+                        <span className="text-2xl font-bold text-[var(--color-text)]">{total}</span>
+                        <span className="text-xs text-[var(--color-text-muted)]">Solved</span>
                     </div>
                 </div>
 
                 {/* Stats List */}
                 <div className="space-y-3 w-full max-w-xs">
                     <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-300">Easy</span>
-                        <span className="text-green-400 font-bold">{easy}</span>
+                        <span className="text-[var(--color-text-muted)]">Easy</span>
+                        <span className="text-green-500 font-bold">{easy}</span>
                     </div>
-                    <div className="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-2 w-full bg-[var(--color-border)] rounded-full overflow-hidden">
                         <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${(easy / total) * 100}%` }}
@@ -98,10 +98,10 @@ const LeetCodeStats: React.FC = () => {
                     </div>
 
                     <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-300">Medium</span>
-                        <span className="text-yellow-400 font-bold">{medium}</span>
+                        <span className="text-[var(--color-text-muted)]">Medium</span>
+                        <span className="text-yellow-500 font-bold">{medium}</span>
                     </div>
-                    <div className="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-2 w-full bg-[var(--color-border)] rounded-full overflow-hidden">
                         <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${(medium / total) * 100}%` }}
@@ -110,10 +110,10 @@ const LeetCodeStats: React.FC = () => {
                     </div>
 
                     <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-300">Hard</span>
-                        <span className="text-red-400 font-bold">{hard}</span>
+                        <span className="text-[var(--color-text-muted)]">Hard</span>
+                        <span className="text-red-500 font-bold">{hard}</span>
                     </div>
-                    <div className="h-2 w-full bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-2 w-full bg-[var(--color-border)] rounded-full overflow-hidden">
                         <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${(hard / total) * 100}%` }}
