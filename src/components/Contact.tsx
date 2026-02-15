@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
                     <div className="mb-12">
                         <p className="text-gray-500 mb-4">Or check out my resume</p>
                         <a
-                            href="https://drive.google.com/drive/u/0/folders/1xgqV7-N-PUyFu2HT_QRJSfACXvy3457O"
+                            href="https://drive.google.com/file/d/10x1r1hcas68V1Iwei_J7TbFInZ3P233c/view?usp=sharing"
                             target="_blank"
                             rel="noreferrer"
                             className="inline-flex items-center gap-2 text-secondary hover:text-white transition-colors border-b border-secondary hover:border-white pb-1"
