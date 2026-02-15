@@ -49,12 +49,13 @@ const Contact: React.FC = () => {
                     <div className="mb-12">
                         <p className="text-gray-500 mb-4">Or check out my resume</p>
                         <a
-                            href="/resume.pdf" // Link to resume asset
-                            download="Gurpreet_Singh_Resume.pdf"
+                            href="https://drive.google.com/drive/u/0/folders/1xgqV7-N-PUyFu2HT_QRJSfACXvy3457O"
+                            target="_blank"
+                            rel="noreferrer"
                             className="inline-flex items-center gap-2 text-secondary hover:text-white transition-colors border-b border-secondary hover:border-white pb-1"
                         >
                             <FileText size={18} />
-                            Download Resume
+                            View Resume
                         </a>
                     </div>
 
