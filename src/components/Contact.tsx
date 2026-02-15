@@ -12,9 +12,9 @@ const Contact: React.FC = () => {
                     viewport={{ once: true }}
                 >
                     <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                        Let's <span className="text-primary">Connect</span>
+                        Let's <span className="text-[var(--color-primary)]">Connect</span>
                     </h2>
-                    <p className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+                    <p className="text-[var(--color-text-muted)] text-lg mb-10 max-w-2xl mx-auto">
                         I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
                     </p>
 

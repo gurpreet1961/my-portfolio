@@ -24,27 +24,27 @@ const About: React.FC = () => {
                     {/* Content */}
                     <div className="w-full md:w-1/2 space-y-6">
                         <h2 className="text-3xl md:text-5xl font-bold">
-                            About <span className="text-primary">Me</span>
+                            About <span className="text-[var(--color-primary)]">Me</span>
                         </h2>
-                        <p className="text-gray-300 text-lg leading-relaxed">
+                        <p className="text-[var(--color-text-muted)] text-lg leading-relaxed">
                             I am a passionate Full Stack Developer dedicated to crafting efficient and scalable web applications.
-                            With a strong foundation in <span className="text-secondary font-semibold">React, TypeScript, and Node.js</span>,
+                            With a strong foundation in <span className="text-[var(--color-secondary)] font-semibold">React, TypeScript, and Node.js</span>,
                             I love solving complex problems and turning ideas into reality.
                         </p>
-                        <p className="text-gray-300 text-lg leading-relaxed">
+                        <p className="text-[var(--color-text-muted)] text-lg leading-relaxed">
                             My journey involves continuous learning and experimenting with new technologies.
                             From building interactive 3D user interfaces to optimizing backend performance,
                             I strive for excellence in every line of code I write.
                         </p>
 
                         <div className="flex gap-4 pt-4">
-                            <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                                <h3 className="text-2xl font-bold text-primary">20+</h3>
-                                <p className="text-sm text-gray-400">Projects Completed</p>
+                            <div className="text-center p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)] shadow-sm">
+                                <h3 className="text-2xl font-bold text-[var(--color-primary)]">20+</h3>
+                                <p className="text-sm text-[var(--color-text-muted)]">Projects Completed</p>
                             </div>
-                            <div className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                                <h3 className="text-2xl font-bold text-secondary">100+</h3>
-                                <p className="text-sm text-gray-400">LeetCode Solved</p>
+                            <div className="text-center p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)] shadow-sm">
+                                <h3 className="text-2xl font-bold text-[var(--color-secondary)]">100+</h3>
+                                <p className="text-sm text-[var(--color-text-muted)]">LeetCode Solved</p>
                             </div>
                         </div>
                     </div>

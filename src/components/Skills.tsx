@@ -25,9 +25,9 @@ const Skills: React.FC = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                        My <span className="text-secondary">Skills</span>
+                        My <span className="text-[var(--color-secondary)]">Skills</span>
                     </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-[var(--color-text-muted)] max-w-2xl mx-auto">
                         A snapshot of my technical expertise and tools I use to build digital experiences.
                     </p>
                 </motion.div>
@@ -40,16 +40,16 @@ const Skills: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className="bg-dark/50 p-6 rounded-xl border border-white/5 hover:border-secondary/50 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-secondary/20"
+                            className="bg-[var(--color-bg-secondary)] p-6 rounded-xl border border-[var(--color-border)] hover:border-[var(--color-secondary)]/50 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--color-secondary)]/20 shadow-sm"
                         >
-                            <h3 className="text-xl font-bold mb-6 text-center text-primary bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                            <h3 className="text-xl font-bold mb-6 text-center text-[var(--color-primary)] bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]">
                                 {skillGroup.category}
                             </h3>
                             <div className="flex flex-wrap gap-2 justify-center">
                                 {skillGroup.items.map((item) => (
                                     <span
                                         key={item}
-                                        className="px-3 py-1 text-sm bg-white/5 border border-white/10 rounded-full text-gray-300 hover:bg-white/10 hover:text-white transition-colors cursor-default"
+                                        className="px-3 py-1 text-sm bg-[var(--color-bg)] border border-[var(--color-border)] rounded-full text-[var(--color-text-muted)] hover:bg-[var(--color-primary)]/10 hover:text-[var(--color-primary)] transition-colors cursor-default"
                                     >
                                         {item}
                                     </span>

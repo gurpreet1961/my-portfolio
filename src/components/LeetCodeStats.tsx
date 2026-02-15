@@ -37,8 +37,8 @@ const LeetCodeStats: React.FC = () => {
         fetchLeetCodeData();
     }, []);
 
-    if (loading) return <div className="text-center text-gray-400">Loading LeetCode stats...</div>;
-    if (error || !data) return <div className="text-center text-gray-500">LeetCode stats unavailable.</div>;
+    if (loading) return <div className="text-center text-[var(--color-text-muted)]">Loading LeetCode stats...</div>;
+    if (error || !data) return <div className="text-center text-[var(--color-text-muted)]">LeetCode stats unavailable.</div>;
 
     const total = data.totalSolved;
     const easy = data.easySolved;

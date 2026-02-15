@@ -87,7 +87,7 @@ const Navbar: React.FC = () => {
                                 href={social.href}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="text-gray-400 hover:text-[var(--color-primary)] transition-colors"
+                                className="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors"
                             >
                                 {social.icon}
                             </a>
@@ -139,7 +139,7 @@ const Navbar: React.FC = () => {
                                         href={social.href}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="text-gray-400 hover:text-[var(--color-primary)] transition-colors"
+                                        className="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors"
                                     >
                                         {social.icon}
                                     </a>
