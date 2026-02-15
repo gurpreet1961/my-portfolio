@@ -107,11 +107,14 @@ const Experience: React.FC = () => {
                                 <div className="absolute left-[-5px] md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-[var(--color-primary)] ring-4 ring-[var(--color-bg)] z-10 mt-6 md:mt-0"></div>
 
                                 {/* Content Card */}
-                                <div className="flex-1 w-full pl-8 md:pl-0 md:px-12">
+                                <div className={`flex-1 w-full pl-8 ${index % 2 === 0 ? 'md:pl-0 md:pr-16' : 'md:pl-16 md:pr-0'}`}>
                                     <div className="bg-[var(--color-bg-secondary)] rounded-2xl p-6 border border-[var(--color-border)] shadow-sm hover:shadow-lg transition-all relative">
 
                                         {/* Connector Line for Mobile */}
                                         <div className="absolute top-8 left-[-32px] w-8 h-[2px] bg-[var(--color-border)] md:hidden"></div>
+
+                                        {/* Connector Line for Desktop - Dot to Card */}
+                                        <div className={`hidden md:block absolute top-8 w-16 h-[2px] bg-[var(--color-border)] ${index % 2 === 0 ? 'right-[-64px]' : 'left-[-64px]'}`}></div>
 
                                         <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--color-primary)] font-bold mb-2 uppercase tracking-wider">
                                             <span className="bg-[var(--color-primary)]/10 px-3 py-1 rounded-full">{exp.duration}</span>
