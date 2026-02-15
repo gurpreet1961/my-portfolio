@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Calendar } from 'lucide-react';
+import { Briefcase, Award } from 'lucide-react';
 
 interface ExperienceItem {
     id: number;
@@ -8,7 +8,7 @@ interface ExperienceItem {
     company: string;
     duration: string;
     location: string;
-    description: string[];
+    keyLearnings: string[];
 }
 
 const experiences: ExperienceItem[] = [
@@ -18,8 +18,11 @@ const experiences: ExperienceItem[] = [
         company: "GlobalLogic (Hitachi Group)",
         duration: "Jan 2026 – Present",
         location: "Hyderabad",
-        description: [
-            "Promoted to Software Developer active role. Continuing to lead backend development initiatives and microservices architecture enhancements."
+        keyLearnings: [
+            "Microservices Architecture",
+            "Technical Leadership",
+            "Backend Strategy",
+            "System Design"
         ]
     },
     {
@@ -28,16 +31,12 @@ const experiences: ExperienceItem[] = [
         company: "GlobalLogic (Hitachi Group)",
         duration: "Aug 2024 – Dec 2025",
         location: "Hyderabad",
-        description: [
-            "Implemented a secure microservices communication framework, improving distributed system reliability, scalability, and overall service-to-service security.",
-            "Led API performance optimization by migrating high-volume endpoints from SQL to Redis, reducing latency from ~200ms → ~50ms and increasing throughput from 6K → 19K requests/min.",
-            "Diagnosed and resolved major production issues through systematic root cause analysis, improving platform stability and reducing incident frequency.",
-            "Maintained 100% sprint delivery with zero spillover, demonstrating strong Agile/Scrum execution.",
-            "Managed deployments across DEV, SPRINT, and PROD, ensuring high availability and smooth rollout of microservices.",
-            "Improved CI/CD automation by introducing a new Jenkins pipeline stage, reducing manual interventions.",
-            "Developed comprehensive JUnit test suites with high code coverage, improving code quality and minimizing regression risks.",
-            "Utilized Dynatrace for observability, performance monitoring, and proactive bottleneck detection.",
-            "Delivered robust backend solutions using Spring Boot, Kafka, JPA, Redis, MySQL, and Jenkins."
+        keyLearnings: [
+            "Performance Optimization (Redis)",
+            "System Reliability & Security",
+            "CI/CD Automation (Jenkins)",
+            "Observability (Dynatrace)",
+            "Java Spring Boot & Kafka"
         ]
     },
     {
@@ -46,12 +45,11 @@ const experiences: ExperienceItem[] = [
         company: "GlobalLogic (Hitachi Group)",
         duration: "Mar 2024 – Aug 2024",
         location: "Hyderabad",
-        description: [
-            "Gained practical experience in Java, Spring Boot, Kafka, SQL, and foundational backend engineering concepts.",
-            "Contributed to development of product features and resolved multiple functional and integration bugs.",
-            "Assisted in building and enhancing microservice components, improving understanding of distributed systems.",
-            "Worked in an Agile/Scrum team, participating in sprint planning, daily stand-ups, and iterative delivery cycles.",
-            "Collaborated with senior engineers to understand system design patterns, best practices, and service architecture."
+        keyLearnings: [
+            "Clean Code Principles",
+            "Distributed Systems Basics",
+            "Agile/Scrum Methodologies",
+            "Bug Fixing & Stability"
         ]
     },
     {
@@ -60,17 +58,18 @@ const experiences: ExperienceItem[] = [
         company: "Accenture",
         duration: "Apr 2023 – Sep 2023",
         location: "Gurgaon",
-        description: [
-            "Completed a comprehensive cybersecurity internship focused on application security, risk analysis, and secure development practices.",
-            "Gained hands-on experience with security assessments, vulnerability identification, and compliance-driven security processes.",
-            "Collaborated with senior security analysts to understand incident response workflows and enterprise security standards."
+        keyLearnings: [
+            "Application Security",
+            "Vulnerability Assessment",
+            "Risk Analysis",
+            "Compliance Standards"
         ]
     }
 ];
 
 const Experience: React.FC = () => {
     return (
-        <section id="experience" className="py-20 bg-[var(--color-bg)] transition-colors duration-300">
+        <section id="experience" className="py-20 bg-[var(--color-bg)] transition-colors duration-300 overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -79,50 +78,73 @@ const Experience: React.FC = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                        Professional <span className="text-[var(--color-primary)]">Experience</span>
+                        Professional <span className="text-[var(--color-primary)]">Journey</span>
                     </h2>
                     <p className="text-[var(--color-text-muted)] text-lg max-w-2xl mx-auto">
-                        My journey in software engineering, building scalable solutions and secure systems.
+                        My career path and the key technical milestones I've achieved along the way.
                     </p>
                 </motion.div>
 
-                <div className="space-y-12">
-                    {experiences.map((exp, index) => (
-                        <motion.div
-                            key={exp.id}
-                            initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
-                            className="bg-[var(--color-bg-secondary)] rounded-2xl p-8 border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow"
-                        >
-                            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
-                                <div>
-                                    <h3 className="text-2xl font-bold text-[var(--color-text)]">{exp.role}</h3>
-                                    <h4 className="text-xl text-[var(--color-primary)] font-medium mt-1">{exp.company}</h4>
-                                </div>
-                                <div className="flex flex-col md:items-end mt-4 md:mt-0 text-[var(--color-text-muted)]">
-                                    <div className="flex items-center gap-2">
-                                        <Calendar size={16} />
-                                        <span className="text-sm font-medium">{exp.duration}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2 mt-1">
-                                        <Briefcase size={16} />
-                                        <span className="text-sm">{exp.location}</span>
-                                    </div>
-                                </div>
-                            </div>
+                {/* Timeline Container */}
+                <div className="relative">
+                    {/* Vertical Line */}
+                    <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-1 bg-[var(--color-border)] rounded-full"></div>
 
-                            <ul className="space-y-3">
-                                {exp.description.map((item, i) => (
-                                    <li key={i} className="flex items-start text-[var(--color-text-muted)]">
-                                        <span className="mr-3 mt-1.5 min-w-[6px] h-[6px] rounded-full bg-[var(--color-secondary)]"></span>
-                                        <span className="leading-relaxed">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </motion.div>
-                    ))}
+                    <div className="space-y-12">
+                        {experiences.map((exp, index) => (
+                            <motion.div
+                                key={exp.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className={`relative flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} items-center w-full`}
+                            >
+                                {/* Spacer for opposite side */}
+                                <div className="flex-1 hidden md:block"></div>
+
+                                {/* Center Dot */}
+                                <div className="absolute left-[-5px] md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-[var(--color-primary)] ring-4 ring-[var(--color-bg)] z-10 mt-6 md:mt-0"></div>
+
+                                {/* Content Card */}
+                                <div className="flex-1 w-full pl-8 md:pl-0 md:px-8">
+                                    <div className="bg-[var(--color-bg-secondary)] rounded-2xl p-6 border border-[var(--color-border)] shadow-sm hover:shadow-lg transition-all relative">
+
+                                        {/* Connector Line for Mobile */}
+                                        <div className="absolute top-8 left-[-32px] w-8 h-[2px] bg-[var(--color-border)] md:hidden"></div>
+
+                                        <div className="flex flex-wrap items-center gap-2 text-sm text-[var(--color-primary)] font-bold mb-2 uppercase tracking-wider">
+                                            <span className="bg-[var(--color-primary)]/10 px-3 py-1 rounded-full">{exp.duration}</span>
+                                        </div>
+
+                                        <h3 className="text-xl md:text-2xl font-bold text-[var(--color-text)] mb-1">{exp.role}</h3>
+                                        <h4 className="text-lg text-[var(--color-text-muted)] font-medium flex items-center gap-2 mb-4">
+                                            <Briefcase size={16} />
+                                            {exp.company}
+                                            <span className="text-sm font-normal opacity-75">• {exp.location}</span>
+                                        </h4>
+
+                                        <div className="pt-4 border-t border-[var(--color-border)]">
+                                            <p className="text-sm text-[var(--color-text-muted)] font-semibold mb-3 flex items-center gap-2">
+                                                <Award size={16} className="text-[var(--color-secondary)]" />
+                                                Key Learnings & achievements
+                                            </p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {exp.keyLearnings.map((tech, i) => (
+                                                    <span
+                                                        key={i}
+                                                        className="px-3 py-1 text-xs font-medium rounded-md bg-[var(--color-bg)] text-[var(--color-text-muted)] border border-[var(--color-border)]"
+                                                    >
+                                                        {tech}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
