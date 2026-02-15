@@ -1,33 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Menu, X, Github, Linkedin, Code, Moon, Sun } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar: React.FC = () => {
+interface NavbarProps {
+    theme: 'dark' | 'light';
+    toggleTheme: () => void;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [theme, setTheme] = useState<'dark' | 'light'>('dark');
-
-    useEffect(() => {
-        // Check system preference or localStorage
-        if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-            setTheme('light');
-            document.documentElement.classList.add('light');
-        } else {
-            setTheme('dark');
-            document.documentElement.classList.remove('light');
-        }
-    }, []);
-
-    const toggleTheme = () => {
-        if (theme === 'dark') {
-            setTheme('light');
-            document.documentElement.classList.add('light');
-            localStorage.theme = 'light';
-        } else {
-            setTheme('dark');
-            document.documentElement.classList.remove('light');
-            localStorage.theme = 'dark';
-        }
-    };
 
     const toggleMenu = () => setIsOpen(!isOpen);
 

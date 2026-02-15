@@ -14,10 +14,10 @@
 .light {
   --color-bg: #f8fafc; /* Slate 50 */
   --color-bg-secondary: #ffffff; /* White */
-  --color-text: #1e293b; /* Slate 800 */
-  --color-text-muted: #64748b; /* Slate 500 */
-  --color-primary: #4f46e5;
-  --color-secondary: #9333ea;
+  --color-text: #0f172a; /* Slate 900 (Darker for better contrast) */
+  --color-text-muted: #475569; /* Slate 600 (Darker for readability) */
+  --color-primary: #4338ca; /* Indigo 700 (Darker primary) */
+  --color-secondary: #7e22ce; /* Purple 700 */
   --color-border: rgba(0, 0, 0, 0.1);
 }
 
