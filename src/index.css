@@ -14,11 +14,11 @@
 .light {
   --color-bg: #f8fafc; /* Slate 50 */
   --color-bg-secondary: #ffffff; /* White */
-  --color-text: #0f172a; /* Slate 900 (Darker for better contrast) */
-  --color-text-muted: #475569; /* Slate 600 (Darker for readability) */
-  --color-primary: #4338ca; /* Indigo 700 (Darker primary) */
+  --color-text: #020617; /* Slate 950 (Darkest slate for max contrast) */
+  --color-text-muted: #334155; /* Slate 700 (Darker for readability) */
+  --color-primary: #4338ca; /* Indigo 700 */
   --color-secondary: #7e22ce; /* Purple 700 */
-  --color-border: rgba(0, 0, 0, 0.1);
+  --color-border: rgba(0, 0, 0, 0.15); /* Slightly stronger border */
 }
 
 @layer base {

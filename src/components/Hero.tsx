@@ -1,10 +1,71 @@
-import React, { Suspense } from 'react';
-import { Canvas } from '@react-three/fiber';
+import React, { Suspense, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { MeshDistortMaterial, Stars, Float } from '@react-three/drei';
 import { motion } from 'framer-motion';
-import DeveloperScene from './canvas/DeveloperScene';
+import * as THREE from 'three';
 
 interface HeroProps {
     theme: 'dark' | 'light';
+}
+
+const AnimatedSphere = ({ theme }: { theme: 'dark' | 'light' }) => {
+    const meshRef = useRef<THREE.Mesh>(null);
+    const materialRef = useRef<any>(null);
+
+    useFrame(({ clock, mouse }) => {
+        if (meshRef.current) {
+            meshRef.current.rotation.x = clock.getElapsedTime() * 0.2;
+            meshRef.current.rotation.y = clock.getElapsedTime() * 0.3;
+            // Slight mouse interaction
+            meshRef.current.position.x = mouse.x * 2;
+            meshRef.current.position.y = mouse.y * 2;
+        }
+        if (materialRef.current) {
+            materialRef.current.distort = 0.4 + Math.sin(clock.getElapsedTime()) * 0.2;
+        }
+    });
+
+    return (
+        <Float speed={2} rotationIntensity={1.5} floatIntensity={2}>
+            <mesh ref={meshRef} position={[2, 0, 0]} scale={2.2}>
+                <sphereGeometry args={[1, 100, 200]} />
+                <MeshDistortMaterial
+                    ref={materialRef}
+                    color={theme === 'dark' ? "#6366f1" : "#4f46e5"}
+                    attach="material"
+                    distort={0.5}
+                    speed={2}
+                    roughness={0.2}
+                    metalness={0.8}
+                />
+            </mesh>
+        </Float>
+    );
+};
+
+const BackgroundParticles = () => {
+    const groupRef = useRef<THREE.Group>(null);
+
+    useFrame(({ mouse }) => {
+        if (groupRef.current) {
+            groupRef.current.rotation.y = mouse.x * 0.1;
+            groupRef.current.rotation.x = -mouse.y * 0.1;
+        }
+    });
+
+    return (
+        <group ref={groupRef}>
+            <Stars
+                radius={100}
+                depth={50}
+                count={7000}
+                factor={4}
+                saturation={0}
+                fade
+                speed={1.5}
+            />
+        </group>
+    );
 }
 
 const Hero: React.FC<HeroProps> = ({ theme }) => {
@@ -12,9 +73,27 @@ const Hero: React.FC<HeroProps> = ({ theme }) => {
         <section className="relative h-screen flex items-center justify-center overflow-hidden bg-[var(--color-bg)] transition-colors duration-300">
             {/* 3D Background */}
             <div className="absolute inset-0 z-0">
-                <Canvas shadows camera={{ position: [0, 0, 5], fov: 75 }}>
+                <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
                     <Suspense fallback={null}>
-                        <DeveloperScene theme={theme} />
+                        <ambientLight intensity={0.6} />
+                        <directionalLight position={[10, 10, 5]} intensity={1.5} />
+                        <pointLight position={[-10, -10, -5]} intensity={0.5} color={theme === 'dark' ? "#a855f7" : "#9333ea"} />
+
+                        <AnimatedSphere theme={theme} />
+                        <BackgroundParticles />
+
+                        {/* Secondary floating shape */}
+                        <Float speed={1.5} rotationIntensity={2} floatIntensity={1.5}>
+                            <mesh position={[-3, -2, -2]} scale={1.2}>
+                                <torusKnotGeometry args={[0.6, 0.2, 128, 32]} />
+                                <meshStandardMaterial
+                                    color={theme === 'dark' ? "#a855f7" : "#9333ea"}
+                                    roughness={0.3}
+                                    metalness={0.8}
+                                    wireframe={true}
+                                />
+                            </mesh>
+                        </Float>
                     </Suspense>
                 </Canvas>
             </div>
