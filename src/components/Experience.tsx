@@ -14,9 +14,22 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
     {
         id: 0,
+        role: "Software Engineer",
+        company: "ADP",
+        duration: "Apr 2026 – Present",
+        location: "Hyderabad",
+        keyLearnings: [
+            "Enterprise HCM Systems",
+            "Scalable Backend Services",
+            "Cloud Infrastructure",
+            "Agile Development"
+        ]
+    },
+    {
+        id: 1,
         role: "Software Developer",
         company: "GlobalLogic (Hitachi Group)",
-        duration: "Jan 2026 – Present",
+        duration: "Jan 2026 – Apr 2026",
         location: "Hyderabad",
         keyLearnings: [
             "Microservices Architecture",
@@ -26,7 +39,7 @@ const experiences: ExperienceItem[] = [
         ]
     },
     {
-        id: 1,
+        id: 2,
         role: "Associate Software Engineer",
         company: "GlobalLogic (Hitachi Group)",
         duration: "Aug 2024 – Dec 2025",
@@ -40,7 +53,7 @@ const experiences: ExperienceItem[] = [
         ]
     },
     {
-        id: 2,
+        id: 3,
         role: "Trainee Software Engineer",
         company: "GlobalLogic (Hitachi Group)",
         duration: "Mar 2024 – Aug 2024",
@@ -53,7 +66,7 @@ const experiences: ExperienceItem[] = [
         ]
     },
     {
-        id: 3,
+        id: 4,
         role: "Security Associate Intern",
         company: "Accenture",
         duration: "Apr 2023 – Sep 2023",
