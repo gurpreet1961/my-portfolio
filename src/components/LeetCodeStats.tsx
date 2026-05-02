@@ -3,14 +3,11 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 
 interface LeetCodeData {
-    totalSolved: number;
+    solvedProblem: number;
     easySolved: number;
     mediumSolved: number;
     hardSolved: number;
-    totalQuestions: number;
-    acceptanceRate: number;
     ranking: number;
-    contributionPoints: number;
 }
 
 const LeetCodeStats: React.FC = () => {
@@ -21,11 +18,17 @@ const LeetCodeStats: React.FC = () => {
     useEffect(() => {
         const fetchLeetCodeData = async () => {
             try {
-                // Using a proxy to avoid CORS if needed, or direct if API allows.
-                // For this demo, we'll try the common public API.
-                const response = await axios.get('https://leetcode-stats-api.herokuapp.com/gurpreet1961');
-                if (response.data.status === 'error') throw new Error(response.data.message);
-                setData(response.data);
+                const [solvedRes, profileRes] = await Promise.all([
+                    axios.get('https://alfa-leetcode-api.onrender.com/gurpreet1961/solved'),
+                    axios.get('https://alfa-leetcode-api.onrender.com/gurpreet1961'),
+                ]);
+                setData({
+                    solvedProblem: solvedRes.data.solvedProblem,
+                    easySolved: solvedRes.data.easySolved,
+                    mediumSolved: solvedRes.data.mediumSolved,
+                    hardSolved: solvedRes.data.hardSolved,
+                    ranking: profileRes.data.ranking,
+                });
             } catch (err) {
                 console.error("Failed to fetch LeetCode data", err);
                 setError(true);
@@ -40,7 +43,7 @@ const LeetCodeStats: React.FC = () => {
     if (loading) return <div className="text-center text-[var(--color-text-muted)]">Loading LeetCode stats...</div>;
     if (error || !data) return <div className="text-center text-[var(--color-text-muted)]">LeetCode stats unavailable.</div>;
 
-    const total = data.totalSolved;
+    const total = data.solvedProblem;
     const easy = data.easySolved;
     const medium = data.mediumSolved;
     const hard = data.hardSolved;
@@ -119,6 +122,11 @@ const LeetCodeStats: React.FC = () => {
                             whileInView={{ width: `${(hard / total) * 100}%` }}
                             className="h-full bg-red-500"
                         />
+                    </div>
+
+                    <div className="flex justify-between items-center text-sm pt-2 border-t border-[var(--color-border)] mt-2">
+                        <span className="text-[var(--color-text-muted)]">Global Ranking</span>
+                        <span className="text-yellow-500 font-bold">#{data.ranking.toLocaleString()}</span>
                     </div>
                 </div>
             </div>
